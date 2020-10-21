@@ -158,7 +158,7 @@ if confirmation(Gift, "y"):
 
 fastest = numpy.where(timesaves == numpy.amax(timesaves))[0][0]
 
-print("\nHere are the timesaves (compared to the slowest language) for all the languages:")
+print("\nHere are the timesaves (compared to the slowest language in each cutscene):")
 print("English: {} seconds".format(timesaves[0]))
 print("Spanish (LA): {} seconds".format(timesaves[1]))
 print("French (Canadian): {} seconds".format(timesaves[2]))
@@ -168,5 +168,5 @@ print("French: {} seconds".format(timesaves[5]))
 print("German: {} seconds".format(timesaves[6]))
 print("Italian: {} seconds".format(timesaves[7]))
 print("Russian: {} seconds".format(timesaves[8]))
-print("\nThe fastest language is {} and has {} seconds of timesave.".format(languages[fastest], numpy.amax(timesaves)))
+print("\nThe fastest language is {} and has {} seconds of timesave overall.".format(languages[fastest], numpy.amax(timesaves)-numpy.amin(timesaves)))
 exit()
