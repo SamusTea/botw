@@ -57,7 +57,7 @@ elif (speedrun == "AD" or speedrun == "AllDungeons") or (speedrun=="ad" or speed
 elif (speedrun == "AMQ" or speedrun == "AllMainQuests") or (speedrun == "amq" or speedrun == "allmainquests"):
     Slate = "y"
     SoR = "y"
-    Beasts = "y"
+    Beasts = "n"
     All_Beasts = "y"
     Labs = "n"
     Typhlo = "n"
