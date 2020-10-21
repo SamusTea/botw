@@ -87,32 +87,38 @@ else:
     Typhlo = raw_input("Are you going to do the Typhlo Ruins? [y/n] ") 
 
     Eventide = raw_input("Are you going to do Eventide? [y/n] ")
+
+def confirmation(var, bool):
+    if bool == "y":
+        return (var == "y" or var == "Y") or (var == "yes" or var == "Yes")
+    elif bool == "n":
+        return (var == "n" or var == "N") or (var == "no" or var == "No")
     
-if (Slate == "y" or Slate == "Y") or (Slate == "yes" or Slate == "Yes"):
+if confirmation(Slate, "y"):
     print("\nIncluding the sheikah slate cutscene...")
     timesaves = cutscene_times["Sheikah Slate"]
 
-if (SoR == "n" or SoR == "N") or (SoR == "no" or SoR == "No"):
+if confirmation(SoR, "n"):
     print("Including the cutscene to exit the Shrine of Resurrection...")
     timesaves = timesaves + cutscene_times["Open SoR"]
 
-if (Labs == "y" or Labs == "Y") or (Labs == "yes" or Labs == "Yes"):
+if confirmation(Labs, "y"):
     print("Including the cutscenes for the Labryinths...")
     timesaves = timesaves + cutscene_times["Hebra Labyrinth"] + cutscene_times["Gerudo Labryinth"] + cutscene_times["Akkala Labryinth"]
 
-if (Beasts == "y" or Beasts == "Y") or (Beasts == "yes" or Beasts == "Yes"):
+if confirmation(Beasts, "y"):
     print("Including the cutscene for the first Divine Beast...")
     timesaves = timesaves + cutscene_times["First Divine Beast"]
 
-if (All_Beasts == "y" or All_Beasts == "Y") or (All_Beasts == "yes" or All_Beasts == "Yes"):
+if confirmation(All_Beasts, "y"):
     print("Including the cutscene for completing all Divine Beasts...")
     timesaves = timesaves + cutscene_times["Divine Beasts Completed"]
 
-if (Typhlo == "y" or Typhlo == "Y") or (Typhlo == "yes" or Typhlo == "Yes"):
+if confirmation(Typhlo, "y"):
     print("Including the cutscenes for the Typhlo Ruins...")
     timesaves = timesaves + cutscene_times["Typhlo Ruins"] 
 
-if (Eventide == "y" or Eventide == "Y") or (Eventide == "yes" or Eventide == "Yes"):
+if confirmation(Eventide, "y"):
     print("Including the cutscenes for the Eventide...")
     timesaves = timesaves + cutscene_times["Eventide Intro"]+ cutscene_times["Eventide Outro"]
 
