@@ -24,7 +24,7 @@ cutscene_times["Gift from the Monks"] = numpy.array([13.21, 0.02, 21.04, 21.08, 
 
 print("Which speedrun are you doing?")
 print("Options include: AnyPercent, AllShrines, AD, AMQ and Hundo.")
-speedrun = raw_input("If your run isn't listed here, press return. \n")
+speedrun = input("If your run isn't listed here, press return. \n")
 
 timesaves = numpy.zeros(len(languages))
 
@@ -90,25 +90,25 @@ elif (speedrun == "Hundo" or speedrun == "100%") or speedrun == "hundo":
 
 else:
     print("Your run didn't fit a preset, so let's see which cutscenes you'll see:")
-    Slate = raw_input("Are you going to pick up the Sheikah Slate? [y/n] ")
+    Slate = input("Are you going to pick up the Sheikah Slate? [y/n] ")
 
-    SoR = raw_input("Are you going to clip out of Shrine of Resurrection? [y/n] ")
+    SoR = input("Are you going to clip out of Shrine of Resurrection? [y/n] ")
 
-    Beasts = raw_input("Are you going to approach the region of a Divine Beast (before talking to Impa)? [y/n] ")
+    Beasts = input("Are you going to approach the region of a Divine Beast (before talking to Impa)? [y/n] ")
 
-    All_Beasts = raw_input("Are you going to beat all of the Divine Beasts? [y/n] ")
+    All_Beasts = input("Are you going to beat all of the Divine Beasts? [y/n] ")
 
-    Hebra_Lab = raw_input("Are you going to do the Hebra Labryinths? [y/n] ") 
+    Hebra_Lab = input("Are you going to do the Hebra Labryinths? [y/n] ") 
 
-    Gerudo_Lab = raw_input("Are you going to do the Gerudo Labryinth? [y/n] ") 
+    Gerudo_Lab = input("Are you going to do the Gerudo Labryinth? [y/n] ") 
 
-    Akkala_Lab = raw_input("Are you going to do the Akkala Labryinth? [y/n] ") 
+    Akkala_Lab = input("Are you going to do the Akkala Labryinth? [y/n] ") 
 
-    Typhlo = raw_input("Are you going to do the Typhlo Ruins? [y/n] ") 
+    Typhlo = input("Are you going to do the Typhlo Ruins? [y/n] ") 
 
-    Eventide = raw_input("Are you going to do Eventide? [y/n] ")
+    Eventide = input("Are you going to do Eventide? [y/n] ")
 
-    Gift = raw_input("Are you going to complete all the shrines? [y/n] ")
+    Gift = input("Are you going to complete all the shrines? [y/n] ")
 
 def confirmation(var, bool):
     if bool == "y":
