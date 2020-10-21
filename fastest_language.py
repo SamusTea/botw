@@ -18,6 +18,7 @@ cutscene_times["Akkala Labryinth"] = numpy.array([7.04, .05, .03, .05, .05, 0, .
 cutscene_times["Typhlo Ruins"] = numpy.array([7.03, .04, .03, .04, .04, 0, .03, .01, 7.06])
 cutscene_times["Eventide Intro"] = numpy.array([13.24, 7.01, 6.29, 7.01, 7.01, 6.19, 6.14, 13.29, 0])
 cutscene_times["Eventide Outro"] = numpy.array([6.28, .01, 7.01, 7.02, 0, 6.27, 7.02, 6.29, 7.02])
+cutscene_times["Gift from the Monks"] = numpy.array([13.21, 0.02, 21.04, 21.08, 0, 20.17, 20.20, 13.14, 14.02])
 #The cutscenes times are ripped from Swiffy22's YouTube video:
 #https://www.youtube.com/watch?v=yVaZdsgjWz8
 
@@ -32,45 +33,60 @@ if (speedrun == "AnyPercent" or speedrun == "anypercent") or (speedrun=="any%" o
     SoR = "y"
     Beasts = "n"
     All_Beasts = "n"
-    Labs = "n"
+    Hebra_Lab = "n"
+    Gerudo_Lab = "n"
+    Akkala_Lab = "n"
     Typhlo = "n"
     Eventide = "n"
+    Gift = "n"
  
 elif speedrun == "AllShrines" or speedrun == "allshrines":
     Slate = "y"
     SoR = "y"
-    Labs = "y"
+    Hebra_Lab = "y"
+    Gerudo_Lab = "y"
+    Akkala_Lab = "y"
     Typhlo = "y"
     Eventide = "y"
     Beasts = "n"
     All_Beasts = "n"
+    Gift = "y"
 
 elif (speedrun == "AD" or speedrun == "AllDungeons") or (speedrun=="ad" or speedrun == "alldungeons"):
     Slate = "y"
     SoR = "y"
     Beasts = "y"
     All_Beasts = "y"
-    Labs = "n"
+    Hebra_Lab = "n"
+    Gerudo_Lab = "n"
+    Akkala_Lab = "n"
     Typhlo = "n"
     Eventide = "n"
+    Gift = "n"
 
 elif (speedrun == "AMQ" or speedrun == "AllMainQuests") or (speedrun == "amq" or speedrun == "allmainquests"):
     Slate = "y"
     SoR = "y"
     Beasts = "n"
     All_Beasts = "y"
-    Labs = "n"
+    Hebra_Lab = "n"
+    Gerudo_Lab = "n"
+    Akkala_Lab = "n"
     Typhlo = "n"
     Eventide = "n"
+    Gift = "n"
 
 elif (speedrun == "Hundo" or speedrun == "100%") or speedrun == "hundo":
     Slate = "y"
     SoR = "y"
     Beasts = "y"
     All_Beasts = "y"
-    Labs = "y"
+    Hebra_Lab = "y"
+    Gerudo_Lab = "y"
+    Akkala_Lab = "y"
     Typhlo = "y"
     Eventide = "y"
+    Gift = "y"
 
 else:
     print("Your run didn't fit a preset, so let's see which cutscenes you'll see:")
@@ -78,15 +94,21 @@ else:
 
     SoR = raw_input("Are you going to clip out of Shrine of Resurrection? [y/n] ")
 
-    Beasts = raw_input("Are you going to do a Divine Beast (before talking to Impa)? [y/n] ")
+    Beasts = raw_input("Are you going to approach the region of a Divine Beast (before talking to Impa)? [y/n] ")
 
     All_Beasts = raw_input("Are you going to beat all of the Divine Beasts? [y/n] ")
 
-    Labs = raw_input("Are you going to do the Labryinths? [y/n] ") 
+    Hebra_Lab = raw_input("Are you going to do the Hebra Labryinths? [y/n] ") 
+
+    Gerudo_Lab = raw_input("Are you going to do the Gerudo Labryinth? [y/n] ") 
+
+    Akkala_Lab = raw_input("Are you going to do the Akkala Labryinth? [y/n] ") 
 
     Typhlo = raw_input("Are you going to do the Typhlo Ruins? [y/n] ") 
 
     Eventide = raw_input("Are you going to do Eventide? [y/n] ")
+
+    Gift = raw_input("Are you going to complete all the shrines? [y/n] ")
 
 def confirmation(var, bool):
     if bool == "y":
@@ -102,9 +124,17 @@ if confirmation(SoR, "n"):
     print("Including the cutscene to exit the Shrine of Resurrection...")
     timesaves = timesaves + cutscene_times["Open SoR"]
 
-if confirmation(Labs, "y"):
-    print("Including the cutscenes for the Labryinths...")
-    timesaves = timesaves + cutscene_times["Hebra Labyrinth"] + cutscene_times["Gerudo Labryinth"] + cutscene_times["Akkala Labryinth"]
+if confirmation(Hebra_Lab, "y"):
+    print("Including the cutscenes for the Hebra Labryinth...")
+    timesaves = timesaves + cutscene_times["Hebra Labyrinth"]
+
+if confirmation(Gerudo_Lab, "y"):
+    print("Including the cutscenes for the Gerudo Labryinth...")
+    timesaves = timesaves + cutscene_times["Gerudo Labryinth"]
+
+if confirmation(Akkala_Lab, "y"):
+    print("Including the cutscenes for the Akkala Labryinth...")
+    timesaves = timesaves + cutscene_times["Akkala Labryinth"]
 
 if confirmation(Beasts, "y"):
     print("Including the cutscene for the first Divine Beast...")
@@ -121,6 +151,10 @@ if confirmation(Typhlo, "y"):
 if confirmation(Eventide, "y"):
     print("Including the cutscenes for the Eventide...")
     timesaves = timesaves + cutscene_times["Eventide Intro"]+ cutscene_times["Eventide Outro"]
+
+if confirmation(Gift, "y"):
+    print("Including the cutscene for Gift from the Monks...")
+    timesaves = timesaves + cutscene_times["Gift from the Monks"]
 
 fastest = numpy.where(timesaves == numpy.amax(timesaves))[0][0]
 
