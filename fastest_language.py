@@ -4,6 +4,12 @@
 
 import numpy
 
+def confirmation(var, bool):
+    if bool == "y":
+        return (var == "y" or var == "Y") or (var == "yes" or var == "Yes")
+    elif bool == "n":
+        return (var == "n" or var == "N") or (var == "no" or var == "No")
+
 cutscene_times={}
 #The order of times are English, Spanish (Latin America), French (Canada),
 #Japanese, Spanish (Spain), French (France), German, Italian, and Russian.
@@ -33,6 +39,7 @@ if (speedrun == "AnyPercent" or speedrun == "anypercent") or (speedrun=="any%" o
     SoR = "y"
     Beasts = "n"
     All_Beasts = "n"
+    Labs = "n"
     Hebra_Lab = "n"
     Gerudo_Lab = "n"
     Akkala_Lab = "n"
@@ -43,6 +50,7 @@ if (speedrun == "AnyPercent" or speedrun == "anypercent") or (speedrun=="any%" o
 elif speedrun == "AllShrines" or speedrun == "allshrines":
     Slate = "y"
     SoR = "y"
+    Labs =  "y"
     Hebra_Lab = "y"
     Gerudo_Lab = "y"
     Akkala_Lab = "y"
@@ -57,6 +65,7 @@ elif (speedrun == "AD" or speedrun == "AllDungeons") or (speedrun=="ad" or speed
     SoR = "y"
     Beasts = "y"
     All_Beasts = "y"
+    Labs = "n"
     Hebra_Lab = "n"
     Gerudo_Lab = "n"
     Akkala_Lab = "n"
@@ -69,6 +78,7 @@ elif (speedrun == "AMQ" or speedrun == "AllMainQuests") or (speedrun == "amq" or
     SoR = "y"
     Beasts = "n"
     All_Beasts = "y"
+    Labs = "n"
     Hebra_Lab = "n"
     Gerudo_Lab = "n"
     Akkala_Lab = "n"
@@ -81,6 +91,7 @@ elif (speedrun == "Hundo" or speedrun == "100%") or speedrun == "hundo":
     SoR = "y"
     Beasts = "y"
     All_Beasts = "y"
+    Labs = "y"
     Hebra_Lab = "y"
     Gerudo_Lab = "y"
     Akkala_Lab = "y"
@@ -98,24 +109,32 @@ else:
 
     All_Beasts = input("Are you going to beat all of the Divine Beasts? [y/n] ")
 
-    Hebra_Lab = input("Are you going to do the Hebra Labryinths? [y/n] ") 
-
-    Gerudo_Lab = input("Are you going to do the Gerudo Labryinth? [y/n] ") 
-
-    Akkala_Lab = input("Are you going to do the Akkala Labryinth? [y/n] ") 
-
-    Typhlo = input("Are you going to do the Typhlo Ruins? [y/n] ") 
-
-    Eventide = input("Are you going to do Eventide? [y/n] ")
-
     Gift = input("Are you going to complete all the shrines? [y/n] ")
 
-def confirmation(var, bool):
-    if bool == "y":
-        return (var == "y" or var == "Y") or (var == "yes" or var == "Yes")
-    elif bool == "n":
-        return (var == "n" or var == "N") or (var == "no" or var == "No")
-    
+    if confirmation(Gift, "n"):
+
+        Labs = input("Are you going to go to any of the labryinths? [y/n] ")
+
+        if confirmation(Labs, "y"):
+            Hebra_Lab = input("Are you going to do the Hebra Labryinths? [y/n] ") 
+            Gerudo_Lab = input("Are you going to do the Gerudo Labryinth? [y/n] ") 
+            Akkala_Lab = input("Are you going to do the Akkala Labryinth? [y/n] ") 
+        else:
+            Hebra_Lab = "n"
+            Gerudo_Lab = "n"
+            Akkala_Lab = "n"
+
+        Typhlo = input("Are you going to do the Typhlo Ruins? [y/n] ") 
+
+        Eventide = input("Are you going to do Eventide? [y/n] ")
+ 
+    elif confirmation(Gift, "y"):
+        Hebra_Lab = "n"
+        Gerudo_Lab = "n"
+        Akkala_Lab = "n"
+        Typhlo = "y"
+        Eventide = "y"
+
 if confirmation(Slate, "y"):
     print("\nIncluding the sheikah slate cutscene...")
     timesaves = cutscene_times["Sheikah Slate"]
